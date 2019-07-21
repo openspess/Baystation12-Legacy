@@ -1,5 +1,5 @@
 /mob/living/carbon/monkey/emote(var/act)
-
+	act = fix255(act)
 	if(src.stat == 2)
 		return
 

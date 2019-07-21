@@ -10,6 +10,7 @@
 
 /mob/verb/ooc(msg as text)
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
+	msg = fix255(msg)
 	if(!msg)
 		return
 	else if (!src.client.listen_ooc)

@@ -1,3 +1,9 @@
+/proc/fix255(var/message)
+    return replace(message, "ÿ", "&#255;")
+
+/proc/fix1103(var/message)
+    return replace(message, "ÿ", "&#1103;")
+
 /mob/proc/say()
 	return
 
@@ -6,7 +12,7 @@
 
 /mob/verb/say_verb(message as text)
 	set name = "say"
-	usr.say(message)
+	usr.say(fix255(message))
 
 /mob/proc/say_dead(var/message)
 	var/name = real_name
@@ -25,7 +31,7 @@
 	else if (!istype(src, /mob/living/carbon/human))
 		name = name
 
-	message = say_quote(message)
+	message = say_quote(fix255(message))
 
 	var/rendered = "<span class='game deadsay'><span class='prefix'>DEAD:</span> <span class='name'>[name]</span>[alt_name] <span class='message'>[message]</span></span>"
 
@@ -55,7 +61,7 @@
 	if (ending == "!")
 		return "exclaims, \"[text]\"";
 
-	return "says, \"[text]\"";
+	return "says, \"[fix255(text)]\"";
 
 /mob/proc/say_unknown(var/text)
 	return null

@@ -1,4 +1,5 @@
 /mob/living/silicon/say(var/message)
+	message = fix255(message)
 	if (!message || muted || stat == 1)
 		return
 

@@ -1,4 +1,5 @@
 /mob/living/carbon/human/say(var/message)
+	message = fix255(message)
 	if(mutantrace == "lizard")
 		if(copytext(message,1,2) == "*")
 			return ..(message)

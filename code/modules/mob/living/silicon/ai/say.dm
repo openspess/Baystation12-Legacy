@@ -6,6 +6,7 @@
 	return ..()
 
 /mob/living/silicon/ai/say_quote(var/text)
+	text = fix255(text)
 	var/ending = copytext(text, length(text))
 
 	if (ending == "?")

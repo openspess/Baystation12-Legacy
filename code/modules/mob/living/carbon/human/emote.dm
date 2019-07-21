@@ -1,4 +1,5 @@
 /mob/living/carbon/human/emote(var/act)
+	act = fix255(act)
 
 	if(src.stat == 2 && act != "stopbreath")
 		return
